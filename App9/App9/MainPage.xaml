@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App9.MainPage">
+    <ScrollView>
+        <StackLayout>
+            <Label Text="ELECTRICITY BILLING" TextColor="Black" BackgroundColor="Aqua" FontSize="Medium" FontAttributes="Bold"/>
+            <Label Text="Enter Meter Number: "/>
+            <Entry x:Name="meter"/>
+            <Entry x:Name="cons" Placeholder="Enter Consumption Reading"/>
+            <RadioButton x:Name="radioButton1" Content="Less than 72" />
+            <RadioButton x:Name="radioButton2" Content="Less than equal to 150" />
+            <RadioButton x:Name="radioButton3" Content="Less than equal to 300" />
+            <RadioButton x:Name="radioButton4" Content="Less than equal to 400" />
+            <RadioButton x:Name="radioButton5" Content="Less than equal to 500" />
+            <RadioButton x:Name="radioButton6" Content="Otherwise" />
+
+            <Label Text="Radio Button" x:Name="rd" FontSize="Medium" />
+
+            <Frame BorderColor="Orange"
+               CornerRadius="20"
+               HasShadow="True" BackgroundColor="LightGray">
+                <Picker x:Name="myPicker" Title="-Select Type of Registration-">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>1</x:String>
+                            <x:String>2</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+            </Frame>
+
+            <Label Text="{Binding SelectedItem, Source={x:Reference myPicker}}" x:Name="afd" />
+
+            <CheckBox x:Name="checkbox1" />
+            <Label Text="New Member" VerticalTextAlignment="Center"/>
+            <CheckBox x:Name="checkbox2" />
+            <Label Text="Old Member" HorizontalTextAlignment="Center"/>
+
+            <Label Text="You checked the checkbox!" IsVisible="False" x:Name="checkedLabel"/>
+
+            <Button Text="Calculate Pay" Clicked="Button_Clicked" />
+
+            <Label x:Name="PA" Text="Principal Amount: "/>
+            <Label x:Name="AP" Text="Amount Payable: "/>
+            <Label x:Name="VA" Text="VAT: "/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
